@@ -11,26 +11,7 @@
 <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet">
 <style>
 :where([class^="ri-"])::before { content: "\f3c2"; }
-@media (max-width: 768px) {
-.container {
-padding: 0 1rem;
-}
-h1 {
-font-size: 2rem !important;
-}
-h2 {
-font-size: 1.75rem !important;
-}
-.grid {
-grid-template-columns: 1fr !important;
-}
-.hidden {
-display: none !important;
-}
-.md\:hidden {
-display: block !important;
-}
-}
+
 .fade-enter {
 opacity: 0;
 }
@@ -54,19 +35,7 @@ section.visible {
 opacity: 1;
 transform: translateY(0);
 }
-.mobile-menu {
-position: fixed;
-top: 64px;
-left: 0;
-right: 0;
-background: rgba(255, 255, 255, 0.95);
-padding: 1rem;
-transform: translateY(-100%);
-transition: transform 0.3s ease-in-out;
-}
-.mobile-menu.open {
-transform: translateY(0);
-}
+
 :root {
 --bg-primary: #ffffff;
 --text-primary: #1f2937;
@@ -301,11 +270,7 @@ DEFAULT: '8px',
 <a href="#projects" class="nav-link text-gray-800 hover:text-primary transition-all duration-300 px-4 py-2 rounded-full hover:bg-primary/10">Projects</a>
 <a href="#contact" class="nav-link text-gray-800 hover:text-primary transition-all duration-300 px-4 py-2 rounded-full hover:bg-primary/10">Contact</a>
 </div>
-<div class="md:hidden flex items-center">
-<button class="mobile-menu-button p-2 rounded-md text-gray-800 hover:text-primary">
-<i class="ri-menu-line text-2xl"></i>
-</button>
-</div>
+
 </div>
 </div>
 </nav>
@@ -332,7 +297,7 @@ View My Work
 </a>
 </div>
 <div class="relative">
-<img src="https://public.readdy.ai/ai/img_res/310b7b839188753bb02315526f77bf0f.jpg" alt="Featured Car" class="rounded-lg shadow-xl transform hover:scale-105 transition-transform duration-300">
+<img src="https://readdy.ai/api/search-image?query=modern luxury sports car with sleek design, dynamic pose, studio lighting, minimalist background, professional photography style, front three-quarter view&width=800&height=600&seq=2&orientation=landscape&flag=310b7b839188753bb02315526f77bf0f" alt="Featured Car" class="rounded-lg shadow-xl transform hover:scale-105 transition-transform duration-300">
 </div>
 </div>
 </div>
@@ -489,7 +454,7 @@ View My Work
 <h2 class="text-3xl md:text-4xl font-bold text-center mb-16">Featured Projects</h2>
 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
 <div class="project-card bg-gray-900 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1 text-white">
-<img src="https://public.readdy.ai/ai/img_res/2eb3c60b199ed64d9089e278d8f9a3cf.jpg" alt="Car Dashboard UI" class="w-full h-48 object-cover">
+<img src="https://readdy.ai/api/search-image?query=modern car dashboard UI interface design, digital display with navigation and controls, high-tech automotive interior concept&width=600&height=400&seq=3&orientation=landscape&flag=2eb3c60b199ed64d9089e278d8f9a3cf" alt="Car Dashboard UI" class="w-full h-48 object-cover">
 <div class="p-6">
 <h3 class="text-xl font-semibold mb-2">Car Dashboard UI</h3>
 <p class="text-gray-300 mb-4">Modern dashboard interface for luxury vehicles with real-time analytics and controls.</p>
@@ -509,7 +474,7 @@ View My Work
 </div>
 </div>
 <div class="project-card bg-gray-900 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1 text-white">
-<img src="https://public.readdy.ai/ai/img_res/d3ed798a29fb7c59cb09d4951dadd374.jpg" alt="Auto Parts E-commerce" class="w-full h-48 object-cover">
+<img src="https://readdy.ai/api/search-image?query=modern e-commerce website mockup showing luxury car parts and accessories, clean and professional design layout&width=600&height=400&seq=4&orientation=landscape&flag=d3ed798a29fb7c59cb09d4951dadd374" alt="Auto Parts E-commerce" class="w-full h-48 object-cover">
 <div class="p-6">
 <h3 class="text-xl font-semibold mb-2">Auto Parts E-commerce</h3>
 <p class="text-gray-400 mb-4">Full-featured e-commerce platform for automotive parts with real-time inventory.</p>
@@ -529,7 +494,7 @@ View My Work
 </div>
 </div>
 <div class="project-card bg-gray-900 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1 text-white">
-<img src="https://public.readdy.ai/ai/img_res/ab3aa99c79691e4abd29012b424bec35.jpg" alt="Car Maintenance App" class="w-full h-48 object-cover">
+<img src="https://readdy.ai/api/search-image?query=mobile app interface showing car maintenance tracking and scheduling features, modern minimal design with blue accent colors&width=600&height=400&seq=5&orientation=landscape&flag=ab3aa99c79691e4abd29012b424bec35" alt="Car Maintenance App" class="w-full h-48 object-cover">
 <div class="p-6">
 <h3 class="text-xl font-semibold mb-2">Car Maintenance App</h3>
 <p class="text-gray-400 mb-4">Mobile application for tracking vehicle maintenance and service schedules.</p>
@@ -628,7 +593,7 @@ Send Message
 </div>
 <div class="flex justify-end space-x-6">
 <a href="#" class="group relative">
-<div class="w-12 h-12 flex items-center justify-center bg-black rounded-full transition-colors duration-300">
+<div class="w-12 h-12 flex items-center justify-center bg-white rounded-full hover:bg-[#333] hover:text-white transition-colors duration-300">
 <i class="ri-github-fill text-2xl"></i>
 </div>
 <span class="absolute -top-8 left-1/2 -translate-x-1/2 bg-gray-800 text-white px-2 py-1 rounded text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">GitHub</span>
@@ -694,6 +659,7 @@ targetSection.style.opacity = '1';
 }, 300);
 });
 });
+
 // Add initial animation classes to elements
 document.querySelectorAll('section').forEach((section, index) => {
 section.classList.add('initial-animation', `initial-animation-delay-${index + 1}`);
@@ -756,30 +722,23 @@ card.style.animation = 'float 6s ease-in-out infinite';
 });
 }
 // Only use hover animations with consistent timing
-const mobileMenuButton = document.querySelector('.mobile-menu-button');
-const nav = document.querySelector('nav');
-mobileMenuButton.addEventListener('click', () => {
-nav.classList.toggle('mobile-menu-open');
-if (nav.classList.contains('mobile-menu-open')) {
-const mobileMenu = document.createElement('div');
-mobileMenu.className = 'md:hidden bg-white/90 backdrop-blur-sm py-4';
-mobileMenu.innerHTML = `
-<div class="flex flex-col space-y-4 px-4">
-<a href="#home" class="text-gray-800 hover:text-primary transition-colors">Home</a>
-<a href="#skills" class="text-gray-800 hover:text-primary transition-colors">Skills</a>
-<a href="#projects" class="text-gray-800 hover:text-primary transition-colors">Projects</a>
-<a href="#contact" class="text-gray-800 hover:text-primary transition-colors">Contact</a>
-</div>
-`;
-nav.appendChild(mobileMenu);
-} else {
-const mobileMenu = nav.querySelector('.md\\:hidden');
-if (mobileMenu) {
-mobileMenu.remove();
-}
-}
-});
+
 });
 </script>
-</body>
+<script>
+    !function (t, e) { var o, n, p, r; e.__SV || (window.posthog = e, e._i = [], e.init = function (i, s, a) { function g(t, e) { var o = e.split("."); 2 == o.length && (t = t[o[0]], e = o[1]), t[e] = function () { t.push([e].concat(Array.prototype.slice.call(arguments, 0))) } } (p = t.createElement("script")).type = "text/javascript", p.crossOrigin = "anonymous", p.async = !0, p.src = s.api_host.replace(".i.posthog.com", "-assets.i.posthog.com") + "/static/array.js", (r = t.getElementsByTagName("script")[0]).parentNode.insertBefore(p, r); var u = e; for (void 0 !== a ? u = e[a] = [] : a = "posthog", u.people = u.people || [], u.toString = function (t) { var e = "posthog"; return "posthog" !== a && (e += "." + a), t || (e += " (stub)"), e }, u.people.toString = function () { return u.toString(1) + ".people (stub)" }, o = "init capture register register_once register_for_session unregister unregister_for_session getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey getNextSurveyStep identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty createPersonProfile opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing debug".split(" "), n = 0; n < o.length; n++)g(u, o[n]); e._i.push([i, s, a]) }, e.__SV = 1) }(document, window.posthog || []);
+    posthog.init('phc_t9tkQZJiyi2ps9zUYm8TDsL6qXo4YmZx0Ot5rBlAlEd', {
+        api_host: 'https://us.i.posthog.com',
+        autocapture: false,
+        capture_pageview: false,
+        capture_pageleave: false,
+        capture_performance: {
+            web_vitals: false,
+        },
+        rageclick: false,
+    })
+    window.shareKey = 'v3NpF3rml1xiLEg26k8Ntw';
+    window.host = 'readdy.ai';
+</script>
+<script src="https://static.readdy.ai/static/share.js"></script></body>
 </html>
