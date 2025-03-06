@@ -663,76 +663,61 @@ targetSection.style.opacity = '1';
 
 // Add initial animation classes to elements
 document.querySelectorAll('section').forEach((section, index) => {
-section.classList.add('initial-animation', `initial-animation-delay-${index + 1}`);
+    section.classList.add('initial-animation', `initial-animation-delay-${index + 1}`);
 });
+
 const cursor = document.querySelector('.custom-cursor');
 document.addEventListener('mousemove', (e) => {
-cursor.style.left = e.clientX + 'px';
-cursor.style.top = e.clientY + 'px';
+    cursor.style.left = e.clientX + 'px';
+    cursor.style.top = e.clientY + 'px';
 });
+
 const texts = ['Web Developer', 'Software Engineer', 'UI Designer', 'Tech Enthusiast'];
 let textIndex = 0;
 let charIndex = 0;
 const typingContainer = document.getElementById('typing-container');
+
 function type() {
-if (charIndex < texts[textIndex].length) {
-typingContainer.textContent += texts[textIndex].charAt(charIndex);
-charIndex++;
-setTimeout(type, 100);
-} else {
-setTimeout(erase, 2000);
+    if (charIndex < texts[textIndex].length) {
+        typingContainer.textContent += texts[textIndex].charAt(charIndex);
+        charIndex++;
+        setTimeout(type, 100);
+    } else {
+        setTimeout(erase, 2000);
+    }
 }
-}
+
 function erase() {
-if (charIndex > 0) {
-typingContainer.textContent = texts[textIndex].substring(0, charIndex-1);
-charIndex--;
-setTimeout(erase, 50);
-} else {
-textIndex = (textIndex + 1) % texts.length;
-setTimeout(type, 500);
+    if (charIndex > 0) {
+        typingContainer.textContent = texts[textIndex].substring(0, charIndex - 1);
+        charIndex--;
+        setTimeout(erase, 50);
+    } else {
+        textIndex = (textIndex + 1) % texts.length;
+        setTimeout(type, 500);
+    }
 }
-}
+
 type();
+
 const contactForm = document.getElementById('contact-form');
-contactForm.addEventListener('submit', function(e) {
-e.preventDefault();
-const formData = new FormData(contactForm);
-console.log('Form submitted:', Object.fromEntries(formData));
-contactForm.reset();
-const successMessage = document.createElement('div');
-successMessage.className = 'fixed top-4 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg';
-successMessage.textContent = 'Message sent successfully!';
-document.body.appendChild(successMessage);
-setTimeout(() => {
-successMessage.remove();
-}, 3000);
+contactForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+    const formData = new FormData(contactForm);
+    console.log('Form submitted:', Object.fromEntries(formData));
+    contactForm.reset();
+    
+    const successMessage = document.createElement('div');
+    successMessage.className = 'fixed top-4 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg';
+    successMessage.textContent = 'Message sent successfully!';
+    document.body.appendChild(successMessage);
+    
+    setTimeout(() => {
+        successMessage.remove();
+    }, 3000);
 });
-// Only use hover animations with consistent timing
-const mobileMenuButton = document.querySelector('.mobile-menu-button');
-const nav = document.querySelector('nav');
-mobileMenuButton.addEventListener('click', () => {
-nav.classList.toggle('mobile-menu-open');
-if (nav.classList.contains('mobile-menu-open')) {
-const mobileMenu = document.createElement('div');
-mobileMenu.className = 'md:hidden bg-white/90 backdrop-blur-sm py-4';
-mobileMenu.innerHTML = `
-<div class="flex flex-col space-y-4 px-4">
-<a href="#home" class="text-gray-800 hover:text-primary transition-colors">Home</a>
-<a href="#skills" class="text-gray-800 hover:text-primary transition-colors">Skills</a>
-<a href="#projects" class="text-gray-800 hover:text-primary transition-colors">Projects</a>
-<a href="#contact" class="text-gray-800 hover:text-primary transition-colors">Contact</a>
-</div>
-`;
-nav.appendChild(mobileMenu);
-} else {
-const mobileMenu = nav.querySelector('.md\\:hidden');
-if (mobileMenu) {
-mobileMenu.remove();
-}
-}
-});
-});
+
 </script>
 </body>
 </html>
+
