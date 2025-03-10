@@ -137,14 +137,13 @@ document.addEventListener('DOMContentLoaded', function () {
     const switchCheckbox=document.getElementById('myonoffswitch');
     
     
-/* Automatically turn on dark theme at night
     const currentTime=new Date();
     const currentHour=currentTime.getHours();
     if (currentHour >= 20 || currentHour < 6) {
-        switchCheckbox.checked=false;
+        switchCheckbox.checked=true;
         changeTheme('Dark');
     }
-*/
+
     switchCheckbox.addEventListener('change', function () {
         if (themeState == "Dark") {
             changeTheme("Light1");
@@ -175,7 +174,7 @@ document.addEventListener('DOMContentLoaded', function () {
             message: 'Change Theme Default Active',
             timer: 1500
         });
-        switchCheckbox.checked=false;
+        switchCheckbox.checked=true;
     }
     changeTheme(themeState);
 
