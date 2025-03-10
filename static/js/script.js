@@ -88,21 +88,21 @@ document.addEventListener('DOMContentLoaded', function () {
         if (theme == "Dark") {
             themeState="Dark";
             changeSvg("#ffffff");
-            hiv.src="./static/img/svg/snake-Light.svg";
+            hiv.src="./static/img/snake-Light.svg";
             htmlTag.dataset.theme='Dack';
         } 
         
         else if (theme == "Light1") {
             themeState="Light1";
             changeSvg("#ffffff");
-            hiv.src="./static/img/svg/snake-Light.svg";
+            hiv.src="./static/img/snake-Light.svg";
             htmlTag.dataset.theme='Light1';
         }
         
         else if (theme == "Light2") {
             themeState="Light2";
             changeSvg("#000000");
-            hiv.src="./static/img/svg/snake-Light.svg";
+            hiv.src="./static/img/snake-Light.svg";
             htmlTag.dataset.theme='Light2';
         }
         setCookie("themeState", theme, 365);
