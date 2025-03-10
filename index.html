@@ -1,742 +1,248 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<link rel="icon" type="image/png" href="https://raw.githubusercontent.com/finaldanikz/Website/main/favicon.png">
-<title>Portfolio | Web Dev</title>
-<link type="image/png" sizes="16x16" rel="icon" href=".../icons8-favicon-3d-fluency-16.png">
-<script src="https://cdn.tailwindcss.com"></script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
-<link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet">
-<style>
-:where([class^="ri-"])::before { content: "\f3c2"; }
-
-.fade-enter {
-opacity: 0;
-}
-.fade-enter-active {
-opacity: 1;
-transition: opacity 500ms ease-in;
-}
-.fade-exit {
-opacity: 1;
-}
-.fade-exit-active {
-opacity: 0;
-transition: opacity 500ms ease-out;
-}
-section {
-opacity: 0;
-transform: translateY(20px);
-transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-}
-section.visible {
-opacity: 1;
-transform: translateY(0);
-}
-
-:root {
---bg-primary: #ffffff;
---text-primary: #1f2937;
---bg-secondary: #f9fafb;
---card-bg: #ffffff;
---card-dark-bg: #111827;
-}
-[data-theme="dark"] {
---bg-primary: #111827;
---text-primary: #f9fafb;
---bg-secondary: #1f2937;
---card-bg: #1f2937;
---card-dark-bg: #374151;
-}
-[data-theme="dark"] {
-background-color: var(--bg-primary) !important;
-}
-[data-theme="dark"] .bg-white {
-background-color: var(--bg-primary) !important;
-}
-[data-theme="dark"] nav {
-background-color: var(--card-dark-bg) !important;
-}
-[data-theme="dark"] .text-gray-800 {
-color: var(--text-primary) !important;
-}
-[data-theme="dark"] .bg-gray-50 {
-background-color: var(--bg-secondary) !important;
-}
-[data-theme="dark"] .bg-gray-100 {
-background-color: var(--bg-secondary) !important;
-}
-[data-theme="dark"] .text-gray-600 {
-color: #9CA3AF !important;
-}
-[data-theme="dark"] .text-gray-700 {
-color: #D1D5DB !important;
-}
-[data-theme="dark"] .border-gray-200 {
-border-color: #374151 !important;
-}
-[data-theme="dark"] .bg-gray-900 {
-background-color: var(--card-dark-bg) !important;
-}
-[data-theme="dark"] .text-gray-400 {
-color: #9CA3AF !important;
-}
-[data-theme="dark"] .ri-moon-line,
-[data-theme="dark"] .ri-sun-line,
-[data-theme="dark"] .ri-github-fill,
-[data-theme="dark"] .ri-linkedin-fill,
-[data-theme="dark"] .ri-twitter-fill,
-[data-theme="dark"] .ri-instagram-fill,
-[data-theme="dark"] .ri-mail-line,
-[data-theme="dark"] .ri-phone-line,
-[data-theme="dark"] .ri-map-pin-line,
-[data-theme="dark"] .ri-alipay-fill,
-[data-theme="dark"] .ri-wechat-pay-fill,
-[data-theme="dark"] .ri-paypal-fill {
-color: inherit;
-}
-body {
-background-color: var(--bg-primary);
-color: var(--text-primary);
-transition: background-color 0.3s, color 0.3s;
-}
-.bg-white { background-color: var(--card-bg) !important; }
-.bg-gray-50 { background-color: var(--bg-secondary) !important; }
-.bg-gray-900 { background-color: var(--card-dark-bg) !important; }
-.text-gray-800 { color: var(--text-primary) !important; }
-@keyframes typing {
-from { width: 0 }
-to { width: 100% }
-}
-@keyframes blink {
-50% { border-color: transparent }
-}
-@keyframes fadeInUp {
-from {
-opacity: 0;
-transform: translateY(20px);
-}
-to {
-opacity: 1;
-transform: translateY(0);
-}
-}
-@keyframes scaleIn {
-from {
-opacity: 0;
-transform: scale(0.9);
-}
-to {
-opacity: 1;
-transform: scale(1);
-}
-}
-@keyframes floatAnimation {
-0% { transform: translateY(0px); }
-50% { transform: translateY(-10px); }
-100% { transform: translateY(0px); }
-}
-.animate-on-scroll {
-opacity: 0;
-transform: translateY(20px);
-transition: all 0.6s ease-out;
-}
-.animate-on-scroll.visible {
-opacity: 1;
-transform: translateY(0);
-}
-.typing-text {
-display: inline-block;
-overflow: hidden;
-white-space: nowrap;
-border-right: 3px solid;
-animation: typing 3.5s steps(40, end), blink .75s step-end infinite;
-}
-.custom-cursor {
-width: 20px;
-height: 20px;
-border: 2px solid #0ea5e9;
-border-radius: 50%;
-position: fixed;
-pointer-events: none;
-z-index: 9999;
-transition: all 0.1s ease;
-transform: translate(-50%, -50%);
-}
-.nav-link {
-position: relative;
-}
-.nav-link {
-position: relative;
-overflow: hidden;
-}
-.nav-link::before {
-content: '';
-position: absolute;
-top: 50%;
-left: 50%;
-width: 0;
-height: 0;
-background-color: #0ea5e9;
-border-radius: 50%;
-transform: translate(-50%, -50%);
-opacity: 0;
-transition: all 0.5s ease;
-z-index: -1;
-}
-.nav-link:hover::before {
-width: 200%;
-height: 200%;
-opacity: 0.1;
-}
-@keyframes float {
-0%, 100% { transform: translateY(0px) rotate(0deg); }
-25% { transform: translateY(-10px) rotate(1deg); }
-50% { transform: translateY(0px) rotate(-1deg); }
-75% { transform: translateY(10px) rotate(1deg); }
-}
-.skill-card {
-transition: all 0.3s ease;
-}
-.skill-card:hover {
-transform: scale(1.05);
-box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-}
-@keyframes projectFloat {
-0%, 100% { transform: translate(0px, 0px); }
-25% { transform: translate(5px, -5px); }
-50% { transform: translate(0px, 0px); }
-75% { transform: translate(-5px, 5px); }
-}
-.project-card {
-transition: all 0.3s ease;
-}
-.project-card:hover {
-transform: translateY(-4px);
-box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-}
-.initial-animation {
-animation: fadeInUp 0.8s ease-out forwards;
-opacity: 0;
-}
-.initial-animation-delay-1 {
-animation-delay: 0.2s;
-}
-.initial-animation-delay-2 {
-animation-delay: 0.4s;
-}
-.initial-animation-delay-3 {
-animation-delay: 0.6s;
-}
-</style>
-<script>
-tailwind.config = {
-theme: {
-extend: {
-colors: {
-primary: '#0ea5e9',
-secondary: '#06b6d4'
-},
-borderRadius: {
-'none': '0px',
-'sm': '4px',
-DEFAULT: '8px',
-'md': '12px',
-'lg': '16px',
-'xl': '20px',
-'2xl': '24px',
-'3xl': '32px',
-'full': '9999px',
-'button': '8px'
-}
-}
-}
-}
-</script>
-</head>
-<body class="min-h-screen bg-gray-50">
-<div class="custom-cursor"></div>
-<nav class="fixed top-0 w-full bg-white/90 backdrop-blur-sm z-50 shadow-sm">
-<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-<div class="flex justify-between items-center h-16">
-<div class="flex items-center">
-<span class="text-2xl font-['Pacifico'] text-primary hover:scale-110 transition-transform duration-300 cursor-pointer select-none">Dev</span>
-</div>
-<div class="hidden md:flex items-center space-x-8">
-<a href="#home" class="nav-link text-gray-800 hover:text-primary transition-all duration-300 px-4 py-2 rounded-full hover:bg-primary/10">Home</a>
-<a href="#skills" class="nav-link text-gray-800 hover:text-primary transition-all duration-300 px-4 py-2 rounded-full hover:bg-primary/10">Skills</a>
-<a href="#projects" class="nav-link text-gray-800 hover:text-primary transition-all duration-300 px-4 py-2 rounded-full hover:bg-primary/10">Projects</a>
-<a href="#contact" class="nav-link text-gray-800 hover:text-primary transition-all duration-300 px-4 py-2 rounded-full hover:bg-primary/10">Contact</a>
-</div>
-
-</div>
-</div>
-</nav>
-<section id="home" class="pt-24 min-h-screen flex items-center relative overflow-hidden bg-gradient-to-b from-white via-gray-100 to-white">
-<div class="absolute inset-0 pointer-events-none">
-<div class="absolute inset-0 bg-gradient-to-b from-white via-transparent to-white">
-<div class="absolute inset-x-0 top-1/4 bottom-1/4 bg-[radial-gradient(circle_at_50%_50%,rgba(200,200,200,0.2)_0%,rgba(200,200,200,0.1)_25%,rgba(200,200,200,0.05)_50%,transparent_100%)]"></div>
-<div class="absolute inset-x-0 top-1/3 bottom-1/3 bg-[radial-gradient(ellipse_at_50%_50%,rgba(180,180,180,0.15)_0%,rgba(180,180,180,0.08)_50%,transparent_100%)]"></div>
-</div>
-</div>
-<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative bg-white/10 backdrop-blur-md rounded-xl p-8">
-<div class="grid md:grid-cols-2 gap-12 items-center">
-<div>
-<h1 class="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
-Hi, I'm a Web Developer
-</h1>
-<div id="typing-container" class="text-2xl md:text-3xl text-primary font-semibold mb-8 h-12"></div>
-<p class="text-lg text-gray-700 mb-8">
-Passionate developer crafting exceptional digital experiences with modern technologies and creative solutions.
-</p>
-<a href="#projects" class="inline-flex items-center px-6 py-3 bg-primary text-white rounded-button hover:bg-primary/90 transition-all duration-300 hover:scale-110 hover:shadow-lg group">
-View My Work
-<i class="ri-arrow-right-line ml-2 transform group-hover:translate-x-2 transition-transform"></i>
-</a>
-</div>
-<div class="relative">
-<img src="https://readdy.ai/api/search-image?query=modern luxury sports car with sleek design, dynamic pose, studio lighting, minimalist background, professional photography style, front three-quarter view&width=800&height=600&seq=2&orientation=landscape&flag=310b7b839188753bb02315526f77bf0f" alt="Featured Car" class="rounded-lg shadow-xl transform hover:scale-105 transition-transform duration-300">
-</div>
-</div>
-</div>
-</section>
-<section id="skills" class="py-20 bg-gray-50/80 backdrop-blur-sm">
-<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-<h2 class="text-3xl md:text-4xl font-bold text-center mb-16">Professional Skills</h2>
-<div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-<div class="skill-card bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 text-gray-800">
-<div class="w-12 h-12 flex items-center justify-center bg-primary/10 rounded-full mb-4">
-<i class="ri-code-line text-2xl text-primary"></i>
-</div>
-<h3 class="text-xl font-semibold mb-4">Frontend Development</h3>
-<div class="space-y-4">
-<div class="skill-bar">
-<div class="flex justify-between mb-1">
-<span class="text-sm font-medium">React</span>
-<span class="text-sm font-medium">90%</span>
-</div>
-<div class="h-2 bg-gray-200 rounded-full">
-<div class="h-2 bg-primary rounded-full" style="width: 90%"></div>
-</div>
-</div>
-<div class="skill-bar">
-<div class="flex justify-between mb-1">
-<span class="text-sm font-medium">Vue.js</span>
-<span class="text-sm font-medium">85%</span>
-</div>
-<div class="h-2 bg-gray-200 rounded-full">
-<div class="h-2 bg-primary rounded-full" style="width: 85%"></div>
-</div>
-</div>
-<div class="skill-bar">
-<div class="flex justify-between mb-1">
-<span class="text-sm font-medium">CSS/SASS</span>
-<span class="text-sm font-medium">95%</span>
-</div>
-<div class="h-2 bg-gray-200 rounded-full">
-<div class="h-2 bg-primary rounded-full" style="width: 95%"></div>
-</div>
-</div>
-</div>
-</div>
-<div class="skill-card bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 text-gray-800">
-<div class="w-12 h-12 flex items-center justify-center bg-secondary/10 rounded-full mb-4">
-<i class="ri-server-line text-2xl text-secondary"></i>
-</div>
-<h3 class="text-xl font-semibold mb-4">Backend Development</h3>
-<div class="space-y-4">
-<div class="skill-bar">
-<div class="flex justify-between mb-1">
-<span class="text-sm font-medium">Node.js</span>
-<span class="text-sm font-medium">88%</span>
-</div>
-<div class="h-2 bg-gray-200 rounded-full">
-<div class="h-2 bg-secondary rounded-full" style="width: 88%"></div>
-</div>
-</div>
-<div class="skill-bar">
-<div class="flex justify-between mb-1">
-<span class="text-sm font-medium">Python</span>
-<span class="text-sm font-medium">82%</span>
-</div>
-<div class="h-2 bg-gray-200 rounded-full">
-<div class="h-2 bg-secondary rounded-full" style="width: 82%"></div>
-</div>
-</div>
-<div class="skill-bar">
-<div class="flex justify-between mb-1">
-<span class="text-sm font-medium">SQL</span>
-<span class="text-sm font-medium">90%</span>
-</div>
-<div class="h-2 bg-gray-200 rounded-full">
-<div class="h-2 bg-secondary rounded-full" style="width: 90%"></div>
-</div>
-</div>
-</div>
-</div>
-<div class="skill-card bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 text-gray-800">
-<div class="w-12 h-12 flex items-center justify-center bg-primary/10 rounded-full mb-4">
-<i class="ri-palette-line text-2xl text-primary"></i>
-</div>
-<h3 class="text-xl font-semibold mb-4">UI/UX Design</h3>
-<div class="space-y-4">
-<div class="skill-bar">
-<div class="flex justify-between mb-1">
-<span class="text-sm font-medium">Figma</span>
-<span class="text-sm font-medium">92%</span>
-</div>
-<div class="h-2 bg-gray-200 rounded-full">
-<div class="h-2 bg-primary rounded-full" style="width: 92%"></div>
-</div>
-</div>
-<div class="skill-bar">
-<div class="flex justify-between mb-1">
-<span class="text-sm font-medium">Adobe XD</span>
-<span class="text-sm font-medium">85%</span>
-</div>
-<div class="h-2 bg-gray-200 rounded-full">
-<div class="h-2 bg-primary rounded-full" style="width: 85%"></div>
-</div>
-</div>
-<div class="skill-bar">
-<div class="flex justify-between mb-1">
-<span class="text-sm font-medium">Prototyping</span>
-<span class="text-sm font-medium">88%</span>
-</div>
-<div class="h-2 bg-gray-200 rounded-full">
-<div class="h-2 bg-primary rounded-full" style="width: 88%"></div>
-</div>
-</div>
-</div>
-</div>
-<div class="skill-card bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 text-gray-800">
-<div class="w-12 h-12 flex items-center justify-center bg-secondary/10 rounded-full mb-4">
-<i class="ri-tools-line text-2xl text-secondary"></i>
-</div>
-<h3 class="text-xl font-semibold mb-4">Other Skills</h3>
-<div class="space-y-4">
-<div class="skill-bar">
-<div class="flex justify-between mb-1">
-<span class="text-sm font-medium">Git</span>
-<span class="text-sm font-medium">95%</span>
-</div>
-<div class="h-2 bg-gray-200 rounded-full">
-<div class="h-2 bg-secondary rounded-full" style="width: 95%"></div>
-</div>
-</div>
-<div class="skill-bar">
-<div class="flex justify-between mb-1">
-<span class="text-sm font-medium">Docker</span>
-<span class="text-sm font-medium">80%</span>
-</div>
-<div class="h-2 bg-gray-200 rounded-full">
-<div class="h-2 bg-secondary rounded-full" style="width: 80%"></div>
-</div>
-</div>
-<div class="skill-bar">
-<div class="flex justify-between mb-1">
-<span class="text-sm font-medium">AWS</span>
-<span class="text-sm font-medium">85%</span>
-</div>
-<div class="h-2 bg-gray-200 rounded-full">
-<div class="h-2 bg-secondary rounded-full" style="width: 85%"></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="projects" class="py-20 bg-blue-50/50">
-<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-<h2 class="text-3xl md:text-4xl font-bold text-center mb-16">Featured Projects</h2>
-<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-<div class="project-card bg-gray-900 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1 text-white">
-<img src="https://readdy.ai/api/search-image?query=modern car dashboard UI interface design, digital display with navigation and controls, high-tech automotive interior concept&width=600&height=400&seq=3&orientation=landscape&flag=2eb3c60b199ed64d9089e278d8f9a3cf" alt="Car Dashboard UI" class="w-full h-48 object-cover">
-<div class="p-6">
-<h3 class="text-xl font-semibold mb-2">Car Dashboard UI</h3>
-<p class="text-gray-300 mb-4">Modern dashboard interface for luxury vehicles with real-time analytics and controls.</p>
-<div class="flex flex-wrap gap-2 mb-4">
-<span class="px-3 py-1 bg-blue-400/20 text-blue-300 rounded-full text-sm">React</span>
-<span class="px-3 py-1 bg-blue-400/20 text-blue-300 rounded-full text-sm">D3.js</span>
-<span class="px-3 py-1 bg-blue-400/20 text-blue-300 rounded-full text-sm">WebGL</span>
-</div>
-<div class="flex space-x-4">
-<a href="#" class="text-blue-300 hover:text-blue-200">
-<i class="ri-github-fill text-xl"></i>
-</a>
-<a href="#" class="text-blue-300 hover:text-blue-200">
-<i class="ri-external-link-line text-xl"></i>
-</a>
-</div>
-</div>
-</div>
-<div class="project-card bg-gray-900 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1 text-white">
-<img src="https://readdy.ai/api/search-image?query=modern e-commerce website mockup showing luxury car parts and accessories, clean and professional design layout&width=600&height=400&seq=4&orientation=landscape&flag=d3ed798a29fb7c59cb09d4951dadd374" alt="Auto Parts E-commerce" class="w-full h-48 object-cover">
-<div class="p-6">
-<h3 class="text-xl font-semibold mb-2">Auto Parts E-commerce</h3>
-<p class="text-gray-400 mb-4">Full-featured e-commerce platform for automotive parts with real-time inventory.</p>
-<div class="flex flex-wrap gap-2 mb-4">
-<span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">Vue.js</span>
-<span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">Node.js</span>
-<span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">MongoDB</span>
-</div>
-<div class="flex space-x-4">
-<a href="#" class="text-blue-300 hover:text-blue-200">
-<i class="ri-github-fill text-xl"></i>
-</a>
-<a href="#" class="text-blue-300 hover:text-blue-200">
-<i class="ri-external-link-line text-xl"></i>
-</a>
-</div>
-</div>
-</div>
-<div class="project-card bg-gray-900 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1 text-white">
-<img src="https://readdy.ai/api/search-image?query=mobile app interface showing car maintenance tracking and scheduling features, modern minimal design with blue accent colors&width=600&height=400&seq=5&orientation=landscape&flag=ab3aa99c79691e4abd29012b424bec35" alt="Car Maintenance App" class="w-full h-48 object-cover">
-<div class="p-6">
-<h3 class="text-xl font-semibold mb-2">Car Maintenance App</h3>
-<p class="text-gray-400 mb-4">Mobile application for tracking vehicle maintenance and service schedules.</p>
-<div class="flex flex-wrap gap-2 mb-4">
-<span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">React Native</span>
-<span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">Firebase</span>
-<span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">Redux</span>
-</div>
-<div class="flex space-x-4">
-<a href="#" class="text-blue-300 hover:text-blue-200">
-<i class="ri-github-fill text-xl"></i>
-</a>
-<a href="#" class="text-blue-300 hover:text-blue-200">
-<i class="ri-external-link-line text-xl"></i>
-</a>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="contact" class="py-20 bg-gray-100/80 backdrop-blur-sm">
-<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-<h2 class="text-3xl md:text-4xl font-bold text-center mb-16">Contact</h2>
-<div class="grid md:grid-cols-2 gap-12">
-<div class="bg-blue-50 p-8 rounded-lg shadow-lg text-gray-800">
-<form id="contact-form" class="space-y-6">
-<div>
-<label class="block text-sm font-medium text-gray-700 mb-2">Name</label>
-<input type="text" class="w-full px-4 py-2 border border-gray-300 rounded-button focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" required>
-</div>
-<div>
-<label class="block text-sm font-medium text-gray-700 mb-2">Email</label>
-<input type="email" class="w-full px-4 py-2 border border-gray-300 rounded-button focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" required>
-</div>
-<div>
-<label class="block text-sm font-medium text-gray-700 mb-2">Message</label>
-<textarea rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-button focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" required></textarea>
-</div>
-<button type="submit" class="w-full px-6 py-3 bg-primary text-white rounded-button hover:bg-primary/90 transition-colors">
-Send Message
-</button>
-</form>
-</div>
-<div class="space-y-8">
-<div class="bg-blue-50 p-6 rounded-lg shadow-lg text-gray-800 transition-all duration-300 hover:transform hover:translate-y-[-10px] hover:scale-105">
-<h3 class="text-xl font-semibold mb-4">Contact Information</h3>
-<div class="space-y-4">
-<div class="flex items-center space-x-4">
-<div class="w-10 h-10 flex items-center justify-center bg-primary/10 rounded-full">
-<i class="ri-mail-line text-xl text-primary"></i>
-</div>
-<span class="text-gray-600">webdev684v@gmail.com</span>
-</div>
-<div class="flex items-center space-x-4">
-<div class="w-10 h-10 flex items-center justify-center bg-primary/10 rounded-full">
-<i class="ri-phone-line text-xl text-primary"></i>
-</div>
-<span class="text-gray-600">+1 (525) 261-4294</span>
-</div>
-<div class="flex items-center space-x-4">
-<div class="w-10 h-10 flex items-center justify-center bg-primary/10 rounded-full">
-<i class="ri-map-pin-line text-xl text-primary"></i>
-</div>
-<span class="text-gray-600">San Francisco, CA</span>
-</div>
-</div>
-</div>
-<div class="bg-blue-50 p-6 rounded-lg shadow-lg text-gray-800 transition-all duration-300 hover:transform hover:translate-y-[-10px] hover:scale-105">
-<h3 class="text-xl font-semibold mb-4">Support My Work</h3>
-<p class="text-gray-600 mb-6">If you find my work helpful, consider supporting me to create more awesome projects!</p>
-<div class="space-y-4">
-<button class="w-full flex items-center justify-center space-x-2 px-6 py-3 bg-[#00A1E9] text-white rounded-button hover:bg-[#00A1E9]/90 transition-colors">
-<i class="ri-alipay-fill text-xl"></i>
-<span>Alipay</span>
-</button>
-<button class="w-full flex items-center justify-center space-x-2 px-6 py-3 bg-[#07C160] text-white rounded-button hover:bg-[#07C160]/90 transition-colors">
-<i class="ri-wechat-pay-fill text-xl"></i>
-<span>WeChat Pay</span>
-</button>
-<button class="w-full flex items-center justify-center space-x-2 px-6 py-3 bg-[#FF9900] text-white rounded-button hover:bg-[#FF9900]/90 transition-colors">
-<i class="ri-paypal-fill text-xl"></i>
-<span>PayPal</span>
-</button>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-<div class="grid md:grid-cols-2 gap-8 items-center">
-<div>
-<span class="text-2xl font-['Pacifico'] text-primary hover:scale-110 transition-transform duration-300 inline-block">Dev</span>
-<p class="mt-4 text-gray-600">Creating exceptional digital experiences with passion and precision.</p>
-</div>
-<div class="flex justify-end space-x-6">
-<a href="#" class="group relative">
-<div class="w-12 h-12 flex items-center justify-center bg-gray
-    rounded-full hover:bg-[#333] hover:text-white transition-colors duration-300">
-<i class="ri-github-fill text-2xl"></i>
-</div>
-<span class="absolute -top-8 left-1/2 -translate-x-1/2 bg-gray-800 text-white px-2 py-1 rounded text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">GitHub</span>
-</a>
-<a href="#" class="group relative">
-<div class="w-12 h-12 flex items-center justify-center bg-gray-100 rounded-full hover:bg-[#0077B5] hover:text-white transition-all duration-300 transform hover:scale-110">
-<i class="ri-linkedin-fill text-2xl"></i>
-</div>
-<span class="absolute -top-8 left-1/2 -translate-x-1/2 bg-gray-800 text-white px-2 py-1 rounded text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">LinkedIn</span>
-</a>
-<a href="#" class="group relative">
-<div class="w-12 h-12 flex items-center justify-center bg-gray-100 rounded-full hover:bg-[#1DA1F2] hover:text-white transition-all duration-300 transform hover:scale-110">
-<i class="ri-twitter-fill text-2xl"></i>
-</div>
-<span class="absolute -top-8 left-1/2 -translate-x-1/2 bg-gray-800 text-white px-2 py-1 rounded text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">Twitter</span>
-</a>
-<a href="#" class="group relative">
-<div class="w-12 h-12 flex items-center justify-center bg-gray-100 rounded-full hover:bg-[#E4405F] hover:text-white transition-all duration-300 transform hover:scale-110">
-<i class="ri-instagram-fill text-2xl"></i>
-</div>
-<span class="absolute -top-8 left-1/2 -translate-x-1/2 bg-gray-800 text-white px-2 py-1 rounded text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">Instagram</span>
-</a>
-</div>
-</div>
-<div class="mt-8 pt-8 border-t border-gray-100 text-center">
-<p class="text-gray-600 hover:text-primary transition-colors duration-300">&copy; 2025 Web Dev All rights reserved.</p>
-</div>
-</div>
-</footer>
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-// Intersection Observer for fade-in animations
-const observer = new IntersectionObserver((entries) => {
-entries.forEach(entry => {
-if (entry.isIntersecting) {
-entry.target.classList.add('visible');
-}
-});
-}, {
-threshold: 0.1
-});
-document.querySelectorAll('section').forEach((section) => {
-observer.observe(section);
-});
-// Smooth page transitions
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-anchor.addEventListener('click', function (e) {
-e.preventDefault();
-const targetId = this.getAttribute('href');
-const targetSection = document.querySelector(targetId);
-// Fade out current section
-document.querySelectorAll('section').forEach(section => {
-if (section.classList.contains('visible')) {
-section.style.opacity = '0';
-}
-});
-// Smooth scroll and fade in target section
-setTimeout(() => {
-targetSection.scrollIntoView({ behavior: 'smooth' });
-setTimeout(() => {
-targetSection.style.opacity = '1';
-}, 300);
-}, 300);
-});
-});
-
-// Add initial animation classes to elements
-  document.querySelectorAll("section").forEach((section, index) => {
-    section.classList.add(
-      "initial-animation",
-      `initial-animation-delay-${index + 1}`,
-    );
-  });
-  const cursor = document.querySelector(".custom-cursor");
-  document.addEventListener("mousemove", (e) => {
-    cursor.style.left = e.clientX + "px";
-    cursor.style.top = e.clientY + "px";
-  });
-  const texts = [
-    "Web Developer",
-    "Software Engineer",
-    "UI Designer",
-    "Tech Enthusiast",
-  ];
-  let textIndex = 0;
-  let charIndex = 0;
-  const typingContainer = document.getElementById("typing-container");
-  function type() {
-    if (charIndex < texts[textIndex].length) {
-      typingContainer.textContent += texts[textIndex].charAt(charIndex);
-      charIndex++;
-      setTimeout(type, 100);
-    } else {
-      setTimeout(erase, 2000);
-    }
-  }
-  function erase() {
-    if (charIndex > 0) {
-      typingContainer.textContent = texts[textIndex].substring(
-        0,
-        charIndex - 1,
-      );
-      charIndex--;
-      setTimeout(erase, 50);
-    } else {
-      textIndex = (textIndex + 1) % texts.length;
-      setTimeout(type, 500);
-    }
-  }
-  type();
-  const contactForm = document.getElementById("contact-form");
-  contactForm.addEventListener("submit", function (e) {
-    e.preventDefault();
-    const formData = new FormData(contactForm);
-    console.log("Form submitted:", Object.fromEntries(formData));
-    contactForm.reset();
-    const successMessage = document.createElement("div");
-    successMessage.className =
-      "fixed top-4 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg";
-    successMessage.textContent = "Message sent successfully!";
-    document.body.appendChild(successMessage);
-    setTimeout(() => {
-      successMessage.remove();
-    }, 3000);
-  });
-  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-    anchor.addEventListener("click", function (e) {
-      e.preventDefault();
-      document.querySelector(this.getAttribute("href")).scrollIntoView({
-        behavior: "smooth",
-      });
-    });
-  });
-  // Automatic animations for cards
-  function startCardAnimations() {
-    document.querySelectorAll(".skill-card, .project-card").forEach((card) => {
-      card.style.animation = "float 6s ease-in-out infinite";
-    });
-  }
-  // Only use hover animations with consistent timing
-});
-</script>
-</body>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Profile Xcopium. ~~</title>
+    <link rel="shortcut icon" href="static/img/avatar1.png" type="image/x-icon">
+    <meta name="description" content="One day, I shall spread my wings and soar far beyond, to behold the breathtaking beauty of this world.">
+    <meta name="keywords" content="CaQuAnh">
+    <meta name="og:title" contect="Profile CaoQuangAnh ~~">
+    <meta name="og:type" contect="website">
+    <meta property="og:locale" content="vi-VN">
+    <meta name="og:image" contect="static/img/avatar1.png">
+    <!-- <meta name="og:url" contect="https://wusteam.com"> -->
+    <meta name="og:description" contect="One day, I shall spread my wings and soar far beyond, to behold the breathtaking beauty of this world.">
+    <meta name="og:site_name" contect="CaQuAnh">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="./static/css/style.css?v=1">
+    <link rel="stylesheet" href="./static/toast-cute/style.css">
+  </head>
+  <body>
+    <!-- Refresh loading animation -->
+    <div id="PageLoading">
+      <div id="PageLoading-ws">
+        <div id="PageLoading-ws-center">
+          <div class="object" id="object_four"></div>
+          <div class="object" id="object_three"></div>
+          <div class="object" id="object_two"></div>
+          <div class="object" id="object_one"></div>
+        </div>
+      </div>
+    </div>
+    <div class="main">
+      <div onclick="left()" class="left">
+        <div class="left-main">
+          <div class="logo" style="background-image: url(./static/img/avatar1.png);">
+            <img style="position: absolute;top:-15%;left:-10%;width: 120%; aspect-ratio: 1/1;" src="./static/img/logo2.png" alt="Khung viền">
+          </div>
+          <div class="left-div left-des">
+            <div class="left-div-item">
+              <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 24 24" width= 20px height= 20px>
+                <path d="M12,0A10.011,10.011,0,0,0,2,10c0,5.282,8.4,12.533,9.354,13.343l.646.546.646-.546C13.6,22.533,22,15.282,22,10A10.011,10.011,0,0,0,12,0Zm0,15a5,5,0,1,1,5-5A5.006,5.006,0,0,1,12,15Z"/><circle cx="12" cy="10" r="3"/></svg>
+              </svg>Hà Nội, Việt Nam
+            </div>
+            <div class="left-div-item">
+              <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 24 24" width=20px height="20px">
+                <path d="M17.5.917a6.4,6.4,0,0,0-5.5,3.3A6.4,6.4,0,0,0,6.5.917,6.8,6.8,0,0,0,0,7.967c0,6.775,10.956,14.6,11.422,14.932l.578.409.578-.409C13.044,22.569,24,14.742,24,7.967A6.8,6.8,0,0,0,17.5.917Z"/>
+              </svg> Single
+            </div>
+            <div class="left-div-item">
+              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 24 24" style="enable-background:new 0 0 24 24;" xml:space="preserve" width= 20px height= 20px>>
+                <g>
+                  <path d="M23.498,6.186c-0.276-1.039-1.089-1.858-2.122-2.136C19.505,3.546,12,3.546,12,3.546s-7.505,0-9.377,0.504   C1.591,4.328,0.778,5.146,0.502,6.186C0,8.07,0,12,0,12s0,3.93,0.502,5.814c0.276,1.039,1.089,1.858,2.122,2.136   C4.495,20.454,12,20.454,12,20.454s7.505,0,9.377-0.504c1.032-0.278,1.845-1.096,2.122-2.136C24,15.93,24,12,24,12   S24,8.07,23.498,6.186z M9.546,15.569V8.431L15.818,12L9.546,15.569z"/>
+                </g>
+                </svg><span id="youtube-followers">Loading...</span> Subscribers
+            </div>
+            <div class="left-div-item">
+              <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 24 24" width=20px height=20px>
+                <path d="M16.043,14H7.957A4.963,4.963,0,0,0,3,18.957V24H21V18.957A4.963,4.963,0,0,0,16.043,14Z"/>
+                <circle cx="12" cy="6" r="6" fill="white"></circle>
+            </svg>Student
+            </div>
+          </div>
+          <div class="left-div left-tag"><div class="left-tag-item">Call me: He / Him / His</div></div>
+          <div class="left-div left-time"><ul id="line"><li><div class="focus"></div><div>27-03-200x</div><div>Borned in Vietnam</div></li><li><div class="focus"></div><div>200x - Now (2025)</div><div>Studying</div></li><li><div class="focus"></div><div>Future 🌌</div><div>Developer</div></li></ul></div>
+        </div>
+      </div>
+      <div class="right">
+        <header>
+          <div class="index-logo" style="background-image: url(./static/img/avatar1.png);">
+            <img style="position: absolute;top:-15%;left:-10%;width: 120%; aspect-ratio: 1/1;" src="./static/img/logo2.png" alt="Khung viền">
+          </div>
+          <div class="welcome">Hello, I'm <span class="gradientText">Quang Anh</span>
+          </div>
+          <div class="description">👦 <span class="purpleText">Learning</span> Code</div>
+          <div class="description">📝 When you want to <span class="purpleText textBackground">GIVE UP</span>, remember why you <span class="purpleText textBackground">STARTED</span> . </div>
+          <div class="iconContainer">
+            <a class="iconItem" target="_blank" href="https://www.facebook.com/anhcao.quang.927">
+              <svg viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000" width="22px" height="22px">
+                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                <g id="SVGRepo_iconCarrier">
+                  <g id="Icons" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                    <g id="Color-" transform="translate(-200.000000, -160.000000)" fill="#4460A0">
+                      <path d="M225.638355,208 L202.649232,208 C201.185673,208 200,206.813592 200,205.350603 L200,162.649211 C200,161.18585 201.185859,160 202.649232,160 L245.350955,160 C246.813955,160 248,161.18585 248,162.649211 L248,205.350603 C248,206.813778 246.813769,208 245.350955,208 L233.119305,208 L233.119305,189.411755 L239.358521,189.411755 L240.292755,182.167586 L233.119305,182.167586 L233.119305,177.542641 C233.119305,175.445287 233.701712,174.01601 236.70929,174.01601 L240.545311,174.014333 L240.545311,167.535091 C239.881886,167.446808 237.604784,167.24957 234.955552,167.24957 C229.424834,167.24957 225.638355,170.625526 225.638355,176.825209 L225.638355,182.167586 L219.383122,182.167586 L219.383122,189.411755 L225.638355,189.411755 L225.638355,208 L225.638355,208 Z" id="Facebook"></path>
+                    </g>
+                  </g>
+                </g>
+              </svg>
+              <div class="iconTip">Facebook</div>
+            </a>
+            <!---->
+            <a class="iconItem" target="_blank" href="https://github.com/NewPinkCat">
+              <svg t="1704870335945" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2487" width="22px" height="22px">
+                <path d="M511.6 76.3C264.3 76.2 64 276.4 64 523.5 64 718.9 189.3 885 363.8 946c23.5 5.9 19.9-10.8 19.9-22.2v-77.5c-135.7 15.9-141.2-73.9-150.3-88.9C215 726 171.5 718 184.5 703c30.9-15.9 62.4 4 98.9 57.9 26.4 39.1 77.9 32.5 104 26 5.7-23.5 17.9-44.5 34.7-60.8-140.6-25.2-199.2-111-199.2-213 0-49.5 16.3-95 48.3-131.7-20.4-60.5 1.9-112.3 4.9-120 58.1-5.2 118.5 41.6 123.2 45.3 33-8.9 70.7-13.6 112.9-13.6 42.4 0 80.2 4.9 113.5 13.9 11.3-8.6 67.3-48.8 121.3-43.9 2.9 7.7 24.7 58.3 5.5 118 32.4 36.8 48.9 82.7 48.9 132.3 0 102.2-59 188.1-200 212.9 23.5 23.2 38.1 55.4 38.1 91v112.5c0.8 9 0 17.9 15 17.9 177.1-59.7 304.6-227 304.6-424.1 0-247.2-200.4-447.3-447.5-447.3z" fill="#000000" p-id="2488"></path>
+              </svg>
+              <div class="iconTip">Github</div>
+            </a>  
+            <!---->
+            <a class="iconItem" target="_blank" href="https://www.tiktok.com/explore">
+              <svg fill="#000000" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="22px" height="22px">
+                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                <g id="SVGRepo_iconCarrier">
+                  <path d="M19.589 6.686a4.793 4.793 0 0 1-3.77-4.245V2h-3.445v13.672a2.896 2.896 0 0 1-5.201 1.743l-.002-.001.002.001a2.895 2.895 0 0 1 3.183-4.51v-3.5a6.329 6.329 0 0 0-5.394 10.692 6.33 6.33 0 0 0 10.857-4.424V8.687a8.182 8.182 0 0 0 4.773 1.526V6.79a4.831 4.831 0 0 1-1.003-.104z"></path>
+                </g>
+              </svg>
+              <div class="iconTip">Tiktok</div>
+            </a>
+            <!---->
+            <a class="iconItem" target="_blank" href="https://www.youtube.com/@Clown-for_real">
+              <svg viewBox="0 -7 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000" width="22px" height="22px">
+                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                <g id="SVGRepo_iconCarrier">
+                  <g id="Icons" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                    <g id="Color-" transform="translate(-200.000000, -368.000000)" fill="#CE1312">
+                      <path d="M219.044,391.269916 L219.0425,377.687742 L232.0115,384.502244 L219.044,391.269916 Z M247.52,375.334163 C247.52,375.334163 247.0505,372.003199 245.612,370.536366 C243.7865,368.610299 241.7405,368.601235 240.803,368.489448 C234.086,368 224.0105,368 224.0105,368 L223.9895,368 C223.9895,368 213.914,368 207.197,368.489448 C206.258,368.601235 204.2135,368.610299 202.3865,370.536366 C200.948,372.003199 200.48,375.334163 200.48,375.334163 C200.48,375.334163 200,379.246723 200,383.157773 L200,386.82561 C200,390.73817 200.48,394.64922 200.48,394.64922 C200.48,394.64922 200.948,397.980184 202.3865,399.447016 C204.2135,401.373084 206.612,401.312658 207.68,401.513574 C211.52,401.885191 224,402 224,402 C224,402 234.086,401.984894 240.803,401.495446 C241.7405,401.382148 243.7865,401.373084 245.612,399.447016 C247.0505,397.980184 247.52,394.64922 247.52,394.64922 C247.52,394.64922 248,390.73817 248,386.82561 L248,383.157773 C248,379.246723 247.52,375.334163 247.52,375.334163 L247.52,375.334163 Z" id="Youtube"></path>
+                    </g>
+                  </g>
+                </g>
+              </svg>
+              <div class="iconTip">Youtube</div>
+            </a>
+            <!---->
+            <a class="switch" href="javascript:void(0)">
+              <div class="onoffswitch">
+                <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
+                <label class="onoffswitch-label" for="myonoffswitch">
+                  <span class="onoffswitch-inner"></span>
+                  <span class="onoffswitch-switch"></span>
+                </label>
+              </div>
+            </a>
+          </div>
+          <div class="hiv">
+            <img id="hiv" src="./static/img/svg/snake-Light.svg">
+          </div>
+        </header>
+        <content>
+          <div class="title">
+      <svg viewBox="0 -0.5 21 21" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#ffffff" stroke="#ffffff" width="20px" height="20px"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="Dribbble-Light-Preview" transform="translate(-299.000000, -600.000000)" fill="#ffffff"> <g id="icons" transform="translate(56.000000, 160.000000)"> <path d="M246.400111,448.948654 C244.519883,447.158547 244.754644,444.106996 247.102248,442.631229 C248.809889,441.557573 251.103895,441.880078 252.551048,443.257869 L253.222099,443.896756 C253.641237,444.295804 254.319791,444.295804 254.737858,443.896756 C255.156996,443.498727 255.156996,442.852696 254.737858,442.453648 L254.170788,441.913758 C251.680612,439.542937 247.589992,439.302079 245.025851,441.600438 C242.372737,443.979423 242.32557,447.956645 244.884352,450.391762 L245.642231,451.113316 C246.060298,451.512365 246.739924,451.512365 247.15799,451.113316 C247.577129,450.715288 247.577129,450.069257 247.15799,449.670208 L246.400111,448.948654 Z M261.976841,449.345662 L261.430138,448.825163 C261.011,448.426114 260.332446,448.426114 259.914379,448.825163 C259.495241,449.223192 259.495241,449.869222 259.914379,450.268271 L260.585429,450.907158 C262.032583,452.284948 262.370252,454.469002 261.243616,456.094794 C259.693554,458.329877 256.487306,458.552364 254.60815,456.763278 L253.850271,456.041724 C253.431132,455.642675 252.752578,455.642675 252.334511,456.041724 C251.915373,456.439752 251.915373,457.085783 252.334511,457.484832 L253.092391,458.206386 C255.643669,460.63538 259.806111,460.597618 262.305934,458.09106 C264.742511,455.648799 264.478808,451.727709 261.976841,449.345662 L261.976841,449.345662 Z M257.639668,455.32017 L247.91587,446.062438 C247.497803,445.663389 247.497803,445.017358 247.91587,444.61831 C248.335008,444.220281 249.013562,444.220281 249.431629,444.61831 L259.156499,453.876041 C259.574566,454.27509 259.574566,454.921121 259.156499,455.32017 C258.737361,455.718198 258.058807,455.718198 257.639668,455.32017 L257.639668,455.32017 Z" id="url-[#1424]"> </path> </g> </g> </g> </g></svg> Website
+          </div>
+          <div class="projectList">
+            <a class="projectItem" target="_blank" href="https://payments-273.web.app/">
+              <div class="projectItemLeft">
+                <h1>My Payments</h1>
+                <p>Thông tin chuyển khoản (Bank, Momo, Tsr)</p>
+              </div>
+              <div class="projectItemRight">
+                <img src="./static/img/bank.png">
+              </div>
+            </a>
+            <a class="projectItem" target="_blank" href="https://imgur.com/">
+              <div class="projectItemLeft">
+                <h1>Upload Image</h1>
+                <p>Website up ảnh online</p>
+              </div>
+              <div class="projectItemRight">
+                <img src="./static/img/i7.png">
+              </div>
+            </a>
+            <!-- <a class="projectItem" target="_blank" href="https://wusteam.com">
+              <div class="projectItemLeft">
+                <h1>WusTeam</h1>
+                <p>Hệ thống chia sẽ kho mã nguồn mở miễn phí</p>
+              </div>
+              <div class="projectItemRight">
+                <img src="./static/img/i3.png">
+              </div>
+            </a>
+            <a class="projectItem" target="_blank" href="https://obf.thanhdieu.com">
+              <div class="projectItemLeft">
+                <h1>Obfuscation</h1>
+                <p>Trình mã hoá che giấu mã javascript, php</p>
+              </div>
+              <div class="projectItemRight">
+                <img src="./static/img/i8.png">
+              </div>
+            </a> -->
+          </div>
+          <div class="title">
+            <svg t="1705257422086" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1891" width="26px" height="26px">
+              <path d="M629.333333 202.666667v213.333333h277.333334v448h-512v-213.333333h-277.333334v-448h512z m213.333334 277.333333h-213.333334v170.666667h-170.666666v149.333333h384v-320z m-277.333334-213.333333h-384v320h213.333334v-170.666667h170.666666v-149.333333z m0 213.333333h-106.666666v106.666667h106.666666v-106.666667z" fill="#000000" p-id="1892"></path>
+            </svg> MyTeam
+          </div>
+          <div class="projectList">
+            <a class="projectItem" target="_blank" href="https://discord.gg/HtfMaTpwXJ">
+              <div class="projectItemLeft">
+                <h1>Snooze Hub</h1>
+                <p>Hỗ trợ chơi game, cày vật phẩm</p>
+              </div>
+              <div class="projectItemRight">
+                <img src="./static/img/snoozehub.png">
+              </div>
+            </a>
+            <a class="projectItem" target="_blank" href="https://discord.gg/AvNXtdmyV7">
+              <div class="projectItemLeft">
+                <h1>Yuuki Hub</h1>
+                <p>Hỗ trợ chơi game, cày vật phẩm</p>
+              </div>
+              <div class="projectItemRight">
+                <img src="./static/img/yuukihub.png">
+              </div>
+            </a>
+            <a class="projectItem" target="_blank" href="https://discord.gg/kKFAHKx5mQ">
+              <div class="projectItemLeft">
+                <h1>Yuuki Aim</h1>
+                <p>Hỗ trợ Ngắm bắn, leo rank valorant</p>
+              </div>
+              <div class="projectItemRight">
+                <img src="./static/img/yuukiaim.png" style="width: 36px ;height: 36px">
+              </div>
+            </a>
+            <a class="projectItem" target="_blank" href="https://discord.gg/HtfMaTpwXJ">
+              <div class="projectItemLeft">
+                <h1>Ktools</h1>
+                <p>Phần mềm hỗ trợ cuttay</p>
+              </div>
+              <div class="projectItemRight">
+                <img src="./static/img/ktools.png">
+              </div>
+            </a>
+          </div>
+          <div class="title">
+            <svg t="1705257823317" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="7833" width="26px" height="26px">
+              <path d="M395.765333 586.570667h-171.733333c-22.421333 0-37.888-22.442667-29.909333-43.381334L364.768 95.274667A32 32 0 0 1 394.666667 74.666667h287.957333c22.72 0 38.208 23.018667 29.632 44.064l-99.36 243.882666h187.050667c27.509333 0 42.186667 32.426667 24.042666 53.098667l-458.602666 522.56c-22.293333 25.408-63.626667 3.392-54.976-29.28l85.354666-322.421333zM416.714667 138.666667L270.453333 522.581333h166.869334a32 32 0 0 1 30.933333 40.181334l-61.130667 230.954666 322.176-367.114666H565.312c-22.72 0-38.208-23.018667-29.632-44.064l99.36-243.882667H416.714667z" fill="#000000" p-id="7834"></path>
+            </svg> Skills
+          </div>
+          <div class="skill">
+            <img id="skillPc" src="./static/img/svg/skillPc.svg" alt="" srcset="">
+            <img id="skillWap" src="./static/img/svg/skillWap.svg" alt="" srcset="">
+          </div>
+        </content>
+      </div>
+    </div>
+    <footer> Xcopium. © 2025 | <a>All Rights Reserved</a>
+    </footer>
+    <div class="tc">
+      <div onclick="" class="tc-main">
+        <img class="tc-img" src="" alt="" srcset="">
+      </div>
+    </div>
+  </body>
+  <script src="./static/js/script.js?v=1"></script>
+  <script src="./static/toast-cute/cute-alert.js"></script>
+  <script src="./static/js/followers.js"></script>
 </html>
