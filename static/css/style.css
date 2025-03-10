@@ -55,7 +55,7 @@ img a {
 
 
 html[data-theme="Dack"] {
-    --main-bg-color: url(../img/bg14.gif);
+    --main-bg-color: url(../img/bg15.gif);
     --main-text-color: #fff;
     --gradient-start: rgb(133, 62, 255);
     --gradient-middle: #f76cc6;
@@ -76,7 +76,7 @@ html[data-theme="Dack"] {
 }
 
 html[data-theme="Light2"]  {
-    --main-bg-color: url(../img/bg11.gif);
+    --main-bg-color: url(../img/bg7.gif);
     --left-bg: #d7dcef;
     --main-text-color: #000000;
     --gradient-start: #bd34fe;
@@ -101,7 +101,7 @@ html[data-theme="Light2"]  {
 
 html {
     /* --main-bg-color: linear-gradient(50deg, #a2d1ff, #ffffff);"*/
-    --main-bg-color: url(../img/bg10.gif);
+    --main-bg-color: url(../img/bg12.gif);
     --main-text-color: #eeeeee;
     --gradient-start: #bd34fe;
     --gradient-middle: #e0321b;
