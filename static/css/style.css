@@ -142,7 +142,7 @@ body {
 }
 
 #PageLoading {
-    background: radial-gradient(white, #d8eaff);
+    background: radial-gradient(black, #000000);
     background-size: 100%;
     background-position: center;
     background-color: #fff;
