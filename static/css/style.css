@@ -76,7 +76,7 @@ html[data-theme="Dack"] {
 }
 
 html[data-theme="Light2"]  {
-    --main-bg-color: url(../img/bg5.jpg);
+    --main-bg-color: url("https://imgur.com/a/moyaYLH");
     --left-bg: #d7dcef;
     --main-text-color: #000000;
     --gradient-start: #bd34fe;
