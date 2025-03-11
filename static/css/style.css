@@ -76,7 +76,7 @@ html[data-theme="Dack"] {
 }
 
 html[data-theme="Light2"]  {
-    --main-bg-color: url(../img/bg5.jpg);
+    --main-bg-color: url(../img/bg99.jpg);
     --left-bg: #d7dcef;
     --main-text-color: #000000;
     --gradient-start: #bd34fe;
@@ -101,7 +101,7 @@ html[data-theme="Light2"]  {
 
 html {
     /* --main-bg-color: linear-gradient(50deg, #a2d1ff, #ffffff);"*/
-    --main-bg-color: url(../img/bg3.jpg);
+    --main-bg-color: url(../img/bg100.jpg);
     --main-text-color: #eeeeee;
     --gradient-start: #bd34fe;
     --gradient-middle: #e0321b;
