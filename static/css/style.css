@@ -129,7 +129,7 @@ body {
     width: 100%;
     position: relative;
     font-family: "b", "HarmonyOS_Regular", sans-serif;
-    cursor: url('../img/cursor.cur'), auto;
+    cursor: url('../img/cursor.svg'), auto;
     background: var(--main-bg-color);
     background-repeat: no-repeat;
     background-size: cover;
