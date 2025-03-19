@@ -122,6 +122,11 @@ html {
     --card-filter:0px;
 }
 
+* {
+    cursor: url(https://ani.cursors-4u.net/cursors/cur-13/cur1156.ani), 
+           url(https://ani.cursors-4u.net/cursors/cur-13/cur1156.png), auto;
+}
+
 body {
     display: flex;
     height: 100%;
@@ -129,7 +134,6 @@ body {
     width: 100%;
     position: relative;
     font-family: "b", "HarmonyOS_Regular", sans-serif;
-    cursor: url('../img/cursor.svg'), auto;
     background: var(--main-bg-color);
     background-repeat: no-repeat;
     background-size: cover;
@@ -138,7 +142,6 @@ body {
     transition: color 0.1s ease;
     justify-content: center;
     color: var(--main-text-color);
-
 }
 
 #PageLoading {
